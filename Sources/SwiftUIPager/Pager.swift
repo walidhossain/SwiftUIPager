@@ -160,25 +160,55 @@ public struct Pager<Element, ID, PageView>: View  where PageView: View, Element:
     }
 
     public var body: some View {
-        HStack(spacing: interactiveItemSpacing) {
-            ForEach(dataDisplayed, id: id) { item in
-                self.content(item)
-                    .frame(size: self.pageSize)
-                    .scaleEffect(self.scale(for: item))
-                    .rotation3DEffect((self.isHorizontal ? .zero : Angle(degrees: -90)) - self.scrollDirectionAngle,
-                                      axis: (0, 0, 1))
-                    .rotation3DEffect(self.angle(for: item),
-                                      axis: self.axis(for: item))
-                    .gesture(self.tapGesture(for: item))
-                    .disabled(self.isFocused(item) || !self.isItemTappable || !self.isUserInteractionEnabled)
+        ZStack{
+            HStack(spacing: interactiveItemSpacing) {
+                ForEach(dataDisplayed, id: id) { item in
+                    self.content(item)
+                        .frame(size: self.pageSize)
+                        .scaleEffect(self.scale(for: item))
+                        .rotation3DEffect((self.isHorizontal ? .zero : Angle(degrees: -90)) - self.scrollDirectionAngle,
+                                          axis: (0, 0, 1))
+                        .rotation3DEffect(self.angle(for: item),
+                                          axis: self.axis(for: item))
+                        .gesture(self.tapGesture(for: item))
+                        .disabled(self.isFocused(item) || !self.isItemTappable || !self.isUserInteractionEnabled)
+                }
+                .offset(x: self.xOffset, y : 0)
             }
-            .offset(x: self.xOffset, y : 0)
+            .gesture(swipeGesture)
+            .disabled(!isUserInteractionEnabled)
+            .rotation3DEffect((isHorizontal ? .zero : Angle(degrees: 90)) + scrollDirectionAngle,
+                              axis: (0, 0, 1))
+            .sizeTrackable($size)
+            
+            HStack {
+                Spacer()
+                ForEach(data, id: id){ item in
+                    VStack {
+                        Circle()
+                            .overlay(
+                                Circle()
+                                    .stroke(Color.gray,lineWidth: 1)
+                            ).foregroundColor(Color.white)
+                            .frame(width: 6, height: 6, alignment: .center)
+                    }
+                    .frame(width: 20, height: 20, alignment: .center)
+                        .contentShape(Rectangle())
+                        .gesture(
+                            TapGesture(count: 1)
+                                .onEnded({ _ in
+                                    withAnimation(.spring()) {
+                                        self.scrollToItem(item)
+                                    }
+                                })
+                        )
+                        .opacity(self.data.firstIndex(of: item) == self.page ? 0.8 : 0.4)
+                }
+                Spacer()
+            }
+            .frame(width: self.pageSize.width, alignment: .center)
+            .offset(x: 0, y: self.pageSize.height/2 - 15)
         }
-        .gesture(swipeGesture)
-        .disabled(!isUserInteractionEnabled)
-        .rotation3DEffect((isHorizontal ? .zero : Angle(degrees: 90)) + scrollDirectionAngle,
-                          axis: (0, 0, 1))
-        .sizeTrackable($size)
     }
 }
 
