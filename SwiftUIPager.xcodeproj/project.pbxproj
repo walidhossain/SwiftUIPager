@@ -321,7 +321,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.fmoyader.example.SwiftUIPager;
+				PRODUCT_BUNDLE_IDENTIFIER = com.walid.example.SwiftUIPager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -349,7 +349,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.fmoyader.example.SwiftUIPager;
+				PRODUCT_BUNDLE_IDENTIFIER = com.walid.example.SwiftUIPager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -376,7 +376,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.fermoya.challenge.SwiftUIPager-watchOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.walid.challenge.SwiftUIPager-watchOS";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -404,7 +404,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.fermoya.challenge.SwiftUIPager-watchOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.walid.challenge.SwiftUIPager-watchOS";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -559,7 +559,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.fmoyader.example.SwiftUIPager;
+				PRODUCT_BUNDLE_IDENTIFIER = com.walid.example.SwiftUIPager;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -586,7 +586,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.fmoyader.example.SwiftUIPager;
+				PRODUCT_BUNDLE_IDENTIFIER = com.walid.example.SwiftUIPager;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;

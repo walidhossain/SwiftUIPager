@@ -28,7 +28,7 @@ pod 'SwiftUIPager'
 
 Go to XCode:
 * File -> Swift Packages -> Add Package Dependency...
-* Use the URL https://github.com/fermoya/SwiftUIPager.git
+* Use the URL https://github.com/walidhossain/SwiftUIPager.git
 
 ### Carthage
 
