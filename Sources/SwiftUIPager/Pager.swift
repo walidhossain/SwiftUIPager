@@ -160,7 +160,7 @@ public struct Pager<Element, ID, PageView>: View  where PageView: View, Element:
     }
 
     public var body: some View {
-        ZStack{
+        ZStack(alignment: .bottom){
             HStack(spacing: interactiveItemSpacing) {
                 ForEach(dataDisplayed, id: id) { item in
                     self.content(item)
@@ -207,7 +207,7 @@ public struct Pager<Element, ID, PageView>: View  where PageView: View, Element:
                 Spacer()
             }
             .frame(width: self.pageSize.width, alignment: .center)
-            .offset(x: 0, y: self.pageSize.height/2 - 15)
+            .offset(x: 0, y: -15)
         }
     }
 }
